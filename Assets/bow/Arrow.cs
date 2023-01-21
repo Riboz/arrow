@@ -18,4 +18,11 @@ public class Arrow : MonoBehaviour
     transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
         
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+     if(collision.gameObject.CompareTag("target"))
+     {
+        
+     }
+    }
 }

@@ -23,7 +23,7 @@ public class Bow : MonoBehaviour
      void BowDirection()
      {
      Vector2 Mouse_Posisiton=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-     direction=(Vector2)Mouse_Posisiton-(Vector2)transform.position;
+     direction=(Vector2)transform.position-(Vector2)Mouse_Posisiton;
      transform.right=direction;
      }
     void FixedUpdate()
@@ -36,16 +36,16 @@ public class Bow : MonoBehaviour
     }
     void shoot()
     {
-        if(Input.GetMouseButtonDown(0) )
+        if(Input.GetMouseButton(0) )
         {
             animator.Play("flex");
          if(arrow_power<=arrow_power_bound)
          {
             arrow_timer+=Time.deltaTime;
             
-            if(arrow_timer>0.15f)
+            if(arrow_timer>0.1f)
             {
-                arrow_power+=0.5f;
+                arrow_power+=0.75f;
                 arrow_timer=0;
             }
          }
