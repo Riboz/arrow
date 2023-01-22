@@ -52,9 +52,9 @@ private GameObject[] Dots;
          {
             arrow_timer+=Time.deltaTime;
             
-            if(arrow_timer>0.25f)
+            if(arrow_timer>0.1f)
             {
-             arrow_power+=1f;
+             arrow_power+=0.5f;
              arrow_timer=0;
              
             }

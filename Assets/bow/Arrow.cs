@@ -29,7 +29,13 @@ public class Arrow : MonoBehaviour
     {
      if(collision.gameObject.CompareTag("target"))
      {
-        
+        GameObject bow=GameObject.Find("bow");
+        if(bow!=null)
+        {
+        arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = bow.transform;
+        Destroy(this.GetComponent<Arrow>());
+        }
+    
      }
     }
 }
