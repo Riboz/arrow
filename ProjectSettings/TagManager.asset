@@ -6,6 +6,7 @@ TagManager:
   tags:
   - arrow
   - target
+  - bowCamera
   layers:
   - Default
   - TransparentFX

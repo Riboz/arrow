@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+    public GameObject arrowCam;
+
+    void Awake()
+    {
+        arrowCam = GameObject.FindWithTag("bowCamera");
+        arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
+    }
     void Start()
     {
     rb=GetComponent<Rigidbody2D>();
