@@ -150,10 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74f1bcfe47204e4492179783c9c58fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NumberOfDots: 15
   Arrow: {fileID: 8925536427969449687, guid: 3b1dbcf1d372daa419094ebc83c2c24e, type: 3}
-  Dot: {fileID: 0}
+  Dot: {fileID: 5327826265206019834, guid: 85b88c75a3e3b4b40887a43c0e28ecbd, type: 3}
   Arrow_throw_obj: {fileID: 0}
   arrow_count: 10
   arrow_power: 0
   arrow_power_bound: 12
   arrow_timer: 0
+  SpaceBetweenDots: 0.15

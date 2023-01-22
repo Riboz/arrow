@@ -193,7 +193,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2652901, g: 0.36691734, b: 0.6792453, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -210,7 +210,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -365,11 +365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649685, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.151883
+      value: -3.66
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649685, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.017941922
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649685, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_LocalPosition.z
@@ -402,6 +402,18 @@ PrefabInstance:
     - target: {fileID: 4754079319964649685, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754079319964649687, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
+      propertyPath: NumberOfDots
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754079319964649687, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
+      propertyPath: SpaceBetweenDots
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754079319964649687, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
+      propertyPath: arrow_power_bound
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649691, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_Name
