@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rb;
     public GameObject arrowCam;
+    bool Not_Active=false;
 
     void Awake()
     {
@@ -21,8 +22,12 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    float angle=Mathf.Atan2(rb.velocity.y,rb.velocity.x)*Mathf.Rad2Deg;
-    transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+      if(!Not_Active)
+     {
+      float angle=Mathf.Atan2(rb.velocity.y,rb.velocity.x)*Mathf.Rad2Deg;
+      transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+     }
+    
         
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -32,10 +37,21 @@ public class Arrow : MonoBehaviour
         GameObject bow=GameObject.Find("bow");
         if(bow!=null)
         {
-        arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = bow.transform;
-        Destroy(this.GetComponent<Arrow>());
+        StartCoroutine(Later_Goback());
         }
     
      }
+    }
+    IEnumerator Later_Goback()
+    {
+        Not_Active=true;
+         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
+        Destroy(this.GetComponent<Rigidbody2D>());
+        yield return new WaitForSeconds(2f);
+
+         arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
+
+        Destroy(this.GetComponent<Arrow>());
+        yield break;
     }
 }
