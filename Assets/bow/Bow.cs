@@ -9,26 +9,34 @@ public class Bow : MonoBehaviour
     [SerializeField]private int NumberOfDots;
 
 private GameObject[] Dots;
-    private bool Arrow_is_flying=false;
+   public static bool Arrow_is_flying=false;
     private Vector2 direction;
     [SerializeField] private GameObject Arrow,Dot,Arrow_throw_obj;
     private Animator animator;
     [Header("Arrow parameter")]
-    [SerializeField] private float arrow_count,arrow_power,arrow_power_bound,arrow_timer,SpaceBetweenDots;
+    [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,arrow_timer,SpaceBetweenDots;
     void Awake()
     {
-    Arrow_throw_obj=GameObject.Find("arrow_throw_pos");
-    animator=GetComponent<Animator>();
-    Dots=new GameObject[NumberOfDots];
-    for(int i=0;i<Dots.Length;i++)
-    {
+     StartCoroutine(first_Of_first());
+     Arrow_throw_obj=GameObject.Find("arrow_throw_pos");
+     animator=GetComponent<Animator>();
+     Dots=new GameObject[NumberOfDots];
+     for(int i=0;i<Dots.Length;i++)
+     {
         Dots[i]=Instantiate(Dot,Arrow_throw_obj.transform.position,Quaternion.identity);
         Dots[i].SetActive(false);
-    }
+     }
         
     }
 
     // Update is called once per frame
+    IEnumerator first_Of_first()
+    {
+     Arrow_is_flying=true;
+     yield return new WaitForSeconds(3f);
+     Arrow_is_flying=false;
+     yield break;
+    }
      void BowDirection()
      {
      Vector2 Mouse_Posisiton=Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -86,7 +94,7 @@ private GameObject[] Dots;
         
         Dots[i].SetActive(false);
           }
-        //Arrow_is_flying=true;
+        Arrow_is_flying=true;
 
         }
 

@@ -41,14 +41,25 @@ public class Arrow : MonoBehaviour
         }
     
      }
+      if(collision.gameObject.CompareTag("targethead"))
+      {
+         GameObject bow=GameObject.Find("bow");
+        if(bow!=null)
+        {
+        GameObject game_cont=GameObject.FindGameObjectWithTag("GameController");
+        game_cont.GetComponent<Game_Controller>().Gamepoint+=1;
+        StartCoroutine(Later_Goback());
+        
+        }
+      }
     }
     IEnumerator Later_Goback()
     {
         Not_Active=true;
-         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
+        GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         yield return new WaitForSeconds(2f);
-
+         Bow.Arrow_is_flying=false;
          arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
 
         Destroy(this.GetComponent<Arrow>());
