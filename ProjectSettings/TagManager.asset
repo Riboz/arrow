@@ -9,6 +9,8 @@ TagManager:
   - bowCamera
   - targethead
   - levelcamera
+  - Arrowc
+  - Targetc
   layers:
   - Default
   - TransparentFX

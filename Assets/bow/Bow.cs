@@ -7,8 +7,8 @@ public class Bow : MonoBehaviour
     // Start is called before the first frame update
     [Header("needed")]
     [SerializeField]private int NumberOfDots;
-
-private GameObject[] Dots;
+   Game_Controller game_Controller;
+   private GameObject[] Dots;
    public static bool Arrow_is_flying=false;
     private Vector2 direction;
     [SerializeField] private GameObject Arrow,Dot,Arrow_throw_obj;
@@ -17,6 +17,7 @@ private GameObject[] Dots;
     [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,arrow_timer,SpaceBetweenDots;
     void Awake()
     {
+    game_Controller=GameObject.FindGameObjectWithTag("GameController").GetComponent<Game_Controller>();
      StartCoroutine(first_Of_first());
      Arrow_throw_obj=GameObject.Find("arrow_throw_pos");
      animator=GetComponent<Animator>();
@@ -87,8 +88,9 @@ private GameObject[] Dots;
         arrow_power=0;
 
         arrow_timer=0;
-
+      
         arrow_count-=1;
+       
         for(int i=0;i<Dots.Length;i++)
           {
         
@@ -96,6 +98,8 @@ private GameObject[] Dots;
           }
         Arrow_is_flying=true;
 
+        game_Controller.image_control();
+        
         }
 
     }

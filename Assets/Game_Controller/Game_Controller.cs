@@ -8,8 +8,8 @@ public class Game_Controller : MonoBehaviour
     [SerializeField] private Bow Scenebow;
     [SerializeField] public GameObject[] The_Targets;
     [SerializeField] public float arrow_count;
-    public GameObject panel_Arrow,panel_targets;
-    [SerializeField] public Image Arrow_s,Target_s;
+    
+    [SerializeField] public Image[] Arrow_s,Target_s;
 
     [SerializeField] public int Gamepoint;
     void Awake()
@@ -18,11 +18,22 @@ public class Game_Controller : MonoBehaviour
         arrow_count=Scenebow.arrow_count;
         The_Targets=GameObject.FindGameObjectsWithTag("targethead");
 
+        for(int i=0;i<Scenebow.arrow_count;i++)
+        {
+         Arrow_s[i].gameObject.SetActive(true);
+        }
+        for(int i=0;i<The_Targets.Length;i++)
+        {
+         Target_s[i].gameObject.SetActive(true);
+        }
+
     }
 
     // Update is called once per frame
-   bool image_control()
+   public bool image_control()
    {
+    arrow_count=Scenebow.arrow_count;
+    Arrow_s[(int)arrow_count].gameObject.SetActive(false);
     
     return true;
    }
