@@ -11,6 +11,7 @@ TagManager:
   - levelcamera
   - Arrowc
   - Targetc
+  - arrowCam
   layers:
   - Default
   - TransparentFX

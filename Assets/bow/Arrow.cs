@@ -8,11 +8,13 @@ public class Arrow : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject arrowCam;
     bool Not_Active=false;
+    public Animator cameraState;
 
     void Awake()
     {
-        arrowCam = GameObject.FindWithTag("bowCamera");
+        arrowCam = GameObject.FindWithTag("arrowCam");
         arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
+        cameraState = GameObject.Find("CameraStateController").GetComponent<Animator>();
     }
     void Start()
     {
@@ -60,8 +62,9 @@ public class Arrow : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         yield return new WaitForSeconds(2f);
-         Bow.Arrow_is_flying=false;
-         arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
+         Bow.Arrow_is_flying=false; ;
+         cameraState.SetBool("arrowFlying", false);
+         //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
 
         Destroy(this.GetComponent<Arrow>());
         yield break;

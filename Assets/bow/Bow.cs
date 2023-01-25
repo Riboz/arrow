@@ -7,9 +7,10 @@ public class Bow : MonoBehaviour
     // Start is called before the first frame update
     [Header("needed")]
     [SerializeField]private int NumberOfDots;
-   Game_Controller game_Controller;
-   private GameObject[] Dots;
-   public static bool Arrow_is_flying=false;
+    Game_Controller game_Controller;
+    private GameObject[] Dots;
+    public static bool Arrow_is_flying=false;
+    public Animator cameraState;
     private Vector2 direction;
     [SerializeField] private GameObject Arrow,Dot,Arrow_throw_obj;
     private Animator animator;
@@ -51,6 +52,10 @@ public class Bow : MonoBehaviour
     void Update()
     {
         if(!Arrow_is_flying && arrow_count>0)shoot();
+        if (Input.GetKeyDown("space"))
+        {
+            cameraState.SetBool("levelShow", true);
+        }
     }
     void shoot()
     {
@@ -97,6 +102,7 @@ public class Bow : MonoBehaviour
         Dots[i].SetActive(false);
           }
         Arrow_is_flying=true;
+        cameraState.SetBool("arrowFlying", true);
 
         game_Controller.image_control();
         
