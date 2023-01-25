@@ -35,7 +35,10 @@ public class Game_Controller : MonoBehaviour
    {
     arrow_count=Scenebow.arrow_count;
     Arrow_s[(int)arrow_count].gameObject.SetActive(false);
-    
+    if(arrow_count==0)
+    {
+        // lose panel
+    }
     return true;
    }
    public void image_Target_control(int a)
@@ -44,8 +47,15 @@ public class Game_Controller : MonoBehaviour
     if(Gamepoint>=0)
     {
         Target_s[Gamepoint].gameObject.SetActive(false);
+        if(Gamepoint==0)
+        {
+            // win panel
+        }
     }
     
  
    }
+
+
+
 }
