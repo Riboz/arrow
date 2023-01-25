@@ -26,6 +26,7 @@ public class Game_Controller : MonoBehaviour
         {
          Target_s[i].gameObject.SetActive(true);
         }
+        Gamepoint=The_Targets.Length;
 
     }
 
@@ -36,5 +37,15 @@ public class Game_Controller : MonoBehaviour
     Arrow_s[(int)arrow_count].gameObject.SetActive(false);
     
     return true;
+   }
+   public void image_Target_control(int a)
+   {
+    Gamepoint-=a;
+    if(Gamepoint>=0)
+    {
+        Target_s[Gamepoint].gameObject.SetActive(false);
+    }
+    
+ 
    }
 }

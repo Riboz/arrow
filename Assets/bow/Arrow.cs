@@ -47,7 +47,8 @@ public class Arrow : MonoBehaviour
         if(bow!=null)
         {
         GameObject game_cont=GameObject.FindGameObjectWithTag("GameController");
-        game_cont.GetComponent<Game_Controller>().Gamepoint+=1;
+
+        game_cont.GetComponent<Game_Controller>().image_Target_control(1);
         StartCoroutine(Later_Goback());
         
         }
