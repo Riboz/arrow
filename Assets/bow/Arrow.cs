@@ -62,6 +62,7 @@ public class Arrow : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         yield return new WaitForSeconds(2f);
+        // panel açılsın 
          Bow.Arrow_is_flying=false; ;
          cameraState.SetBool("arrowFlying", false);
          //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
