@@ -5,9 +5,10 @@ using UnityEngine.UI;
 public class Game_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] public static bool[] Winner;
     [SerializeField] private Bow Scenebow;
     [SerializeField] public GameObject[] The_Targets;
-    [SerializeField] public float arrow_count;
+    [SerializeField] public float arrow_count,level;
     
     [SerializeField] public Image[] Arrow_s,Target_s;
 
@@ -48,6 +49,9 @@ public class Game_Controller : MonoBehaviour
     if(Gamepoint>=0)
     {
         Target_s[Gamepoint].gameObject.SetActive(false);
+
+        Winner[(int)level]=true;
+
         if(Gamepoint==0)
         {
             // win panel

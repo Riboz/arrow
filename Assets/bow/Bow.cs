@@ -9,7 +9,7 @@ public class Bow : MonoBehaviour
     [SerializeField]private int NumberOfDots;
     Game_Controller game_Controller;
     private GameObject[] Dots;
-    public static bool Arrow_is_flying=false;
+    public static bool Arrow_is_flying=true;
     public Animator cameraState;
     private Vector2 direction;
     [SerializeField] private GameObject Arrow,Dot,Arrow_throw_obj;

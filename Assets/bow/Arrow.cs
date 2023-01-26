@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public Image Press_start_image;
+    public GameObject Press_start_image;
     public GameObject arrowCam;
-    bool Not_Active=false;
+    bool Not_Active=false,Not_Active2;
     public Animator cameraState;
 
     void Awake()
@@ -17,10 +17,11 @@ public class Arrow : MonoBehaviour
         arrowCam = GameObject.FindWithTag("arrowCam");
         arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
         cameraState = GameObject.Find("CameraStateController").GetComponent<Animator>();
-        
+        Press_start_image = GameObject.Find("Image");
     }
     void Start()
     {
+      Not_Active2=false;
     rb=GetComponent<Rigidbody2D>();
     }
 
@@ -33,6 +34,14 @@ public class Arrow : MonoBehaviour
       transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
      }
     
+         if(Input.GetKeyDown(KeyCode.Space) && Not_Active2 )
+         {
+           Bow.Arrow_is_flying=false; 
+           cameraState.SetBool("arrowFlying", false);
+           //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
+
+           Destroy(this.GetComponent<Arrow>());
+         }
         
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -43,6 +52,7 @@ public class Arrow : MonoBehaviour
         if(bow!=null)
         {
         StartCoroutine(Later_Goback());
+
         }
     
      }
@@ -59,20 +69,18 @@ public class Arrow : MonoBehaviour
         }
       }
     }
+    
     IEnumerator Later_Goback()
     {
         Not_Active=true;
+         Not_Active2=true;
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
-        yield return new WaitForSeconds(2f);
+        Press_start_image.GetComponent<image_script>().is_Active();
+       
         // bundan sonrası kamerayı tekrar bowa yolluyor
         // panel açılsın 
-         Bow.Arrow_is_flying=false; 
-         
-         cameraState.SetBool("arrowFlying", false);
-         //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
-
-        Destroy(this.GetComponent<Arrow>());
+       
         yield break;
     }
 }
