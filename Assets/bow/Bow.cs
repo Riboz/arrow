@@ -34,8 +34,6 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     IEnumerator first_Of_first()
     {
-     Arrow_is_flying=true;
-     yield return new WaitForSeconds(3f);
      Arrow_is_flying=false;
      yield break;
     }
@@ -99,19 +97,20 @@ public class Bow : MonoBehaviour
         for(int i=0;i<Dots.Length;i++)
           {
         
-        Dots[i].SetActive(false);
+                Dots[i].SetActive(false);
+          
           }
         Arrow_is_flying=true;
         cameraState.SetBool("arrowFlying", true);
 
         game_Controller.image_control();
-        
+
         }
 
     }
     Vector2 Dotposition(float t)
     {
-        Vector2 position=(Vector2)Arrow_throw_obj.transform.position+(direction.normalized*arrow_power*t)+0.5f*Physics2D.gravity*(t*t);
+        Vector2 position = (Vector2)Arrow_throw_obj.transform.position+(direction.normalized*arrow_power*t)+0.5f*Physics2D.gravity*(t*t);
         return position;
     }
 

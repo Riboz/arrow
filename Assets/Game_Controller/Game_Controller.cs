@@ -41,6 +41,7 @@ public class Game_Controller : MonoBehaviour
     }
     return true;
    }
+   
    public void image_Target_control(int a)
    {
     Gamepoint-=a;

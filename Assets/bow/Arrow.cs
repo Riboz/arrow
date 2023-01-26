@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Image Press_start_image;
     public GameObject arrowCam;
     bool Not_Active=false;
     public Animator cameraState;
@@ -15,6 +17,7 @@ public class Arrow : MonoBehaviour
         arrowCam = GameObject.FindWithTag("arrowCam");
         arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
         cameraState = GameObject.Find("CameraStateController").GetComponent<Animator>();
+        
     }
     void Start()
     {
@@ -62,8 +65,10 @@ public class Arrow : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         yield return new WaitForSeconds(2f);
+        // bundan sonrası kamerayı tekrar bowa yolluyor
         // panel açılsın 
-         Bow.Arrow_is_flying=false; ;
+         Bow.Arrow_is_flying=false; 
+         
          cameraState.SetBool("arrowFlying", false);
          //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
 
