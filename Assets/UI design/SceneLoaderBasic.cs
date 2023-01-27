@@ -30,6 +30,14 @@ public class SceneLoaderBasic : MonoBehaviour
 
     public void sceneLoadMainMenu()
     {
+        Time.timeScale = 1;
+        
         SceneManager.LoadScene(0);
+    }
+    public void sceneLoadRestart()
+    {
+        Time.timeScale = 1;
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
