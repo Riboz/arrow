@@ -54,6 +54,7 @@ public class Arrow : MonoBehaviour
         
         if(collision.gameObject.CompareTag("target"))
         {
+        transform.parent = collision.gameObject.transform;
         GameObject bow=GameObject.Find("bow");
         
         if(bow!=null)

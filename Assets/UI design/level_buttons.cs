@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class level_buttons : MonoBehaviour
 {
+    
     public void SwipeUpLevelButtons()
     {
         this.transform.DOLocalMoveY(0, 0.8f);
