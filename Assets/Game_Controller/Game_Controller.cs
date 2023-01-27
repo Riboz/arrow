@@ -50,11 +50,12 @@ public class Game_Controller : MonoBehaviour
     {
         Target_s[Gamepoint].gameObject.SetActive(false);
 
-        Winner[(int)level]=true;
+      
 
         if(Gamepoint==0)
         {
             // win panel
+              Winner[(int)level]=true;
         }
     }
     

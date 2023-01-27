@@ -63,11 +63,13 @@ public class Arrow : MonoBehaviour
       }
       if(collision.gameObject.CompareTag("targethead"))
       { 
+        
+
         GameObject bow=GameObject.Find("bow");
         
         scarecrow = collision.gameObject.GetComponent<Animator>();
         scarecrow.SetTrigger("IsHit");
-        
+        transform.parent = collision.gameObject.transform;
         if(bow!=null)
         { 
             StartCoroutine(Later_Goback());
