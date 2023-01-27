@@ -51,7 +51,17 @@ public class Arrow : MonoBehaviour
     {
 
         Instantiate(hit_smoke, transform.position, quaternion.identity);
+        if(collision.gameObject.CompareTag("ground"))
+        {
+        GameObject bow=GameObject.Find("bow");
         
+        if(bow!=null)
+        {
+        StartCoroutine(Later_Goback()); 
+        }   
+        
+        }
+         
         if(collision.gameObject.CompareTag("target"))
         {
         transform.parent = collision.gameObject.transform;

@@ -15,7 +15,7 @@ public class Bow : MonoBehaviour
     [SerializeField] private GameObject Arrow,Dot,Arrow_throw_obj;
     private Animator animator;
     [Header("Arrow parameter")]
-    [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,arrow_timer,SpaceBetweenDots;
+    [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,SpaceBetweenDots;
     void Awake()
     {
     game_Controller=GameObject.FindGameObjectWithTag("GameController").GetComponent<Game_Controller>();
@@ -64,17 +64,21 @@ public class Bow : MonoBehaviour
             animator.Play("flex");
          if(arrow_power<=arrow_power_bound)
          {
-            arrow_timer+=Time.deltaTime;
+
+           Vector2 Mouse_Posisiton=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+           float Arrowflex=Vector2.Distance(Mouse_Posisiton,(Vector2)this.transform.position);
+
+           arrow_power=Arrowflex*3;
+         
             
-            if(arrow_timer>0.05f)
-            {
-             arrow_power+=0.5f;
-             arrow_timer=0;
-             
-            }
+         }
+         else
+         {
+            arrow_power=0;
          }
 
-         for(int i=0;i<arrow_power*2;i++)
+         for(int i=0;i<Dots.Length;i++)
          {
             Dots[i].SetActive(true);
             Dots[i].transform.position=Dotposition(i*SpaceBetweenDots);   
@@ -92,7 +96,7 @@ public class Bow : MonoBehaviour
 
         arrow_power=0;
 
-        arrow_timer=0;
+     
       
         arrow_count-=1;
        
