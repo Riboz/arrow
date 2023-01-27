@@ -69,13 +69,13 @@ public class Bow : MonoBehaviour
 
            float Arrowflex=Vector2.Distance(Mouse_Posisiton,(Vector2)this.transform.position);
 
-           arrow_power=Arrowflex*3;
+           arrow_power=Arrowflex*4;
          
             
          }
          else
          {
-            arrow_power=0;
+            arrow_power=arrow_power_bound;
          }
 
          for(int i=0;i<Dots.Length;i++)

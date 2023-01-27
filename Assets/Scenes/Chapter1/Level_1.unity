@@ -1887,7 +1887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649687, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: arrow_power_bound
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649691, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_Name
@@ -4631,7 +4631,7 @@ GameObject:
   - component: {fileID: 4415063236555436172}
   m_Layer: 0
   m_Name: Background 1
-  m_TagString: target
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

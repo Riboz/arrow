@@ -1456,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649687, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: arrow_power_bound
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4754079319964649691, guid: 7016dc21e3772ba4aa2bdf255cd94583, type: 3}
       propertyPath: m_Name
