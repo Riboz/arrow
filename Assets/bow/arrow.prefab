@@ -102,6 +102,8 @@ MonoBehaviour:
   Press_start_image: {fileID: 0}
   arrowCam: {fileID: 0}
   cameraState: {fileID: 0}
+  scarecrow: {fileID: 0}
+  hit_smoke: {fileID: 3863805884258303387, guid: a75b6324ece53954a8604763ee8a9d03, type: 3}
 --- !u!50 &8925536427969449683
 Rigidbody2D:
   serializedVersion: 4

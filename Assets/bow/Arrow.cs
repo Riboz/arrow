@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class Arrow : MonoBehaviour
     public GameObject arrowCam;
     bool Not_Active=false,Not_Active2;
     public Animator cameraState;
+    public Animator scarecrow;
+    public GameObject hit_smoke;
 
     void Awake()
     {
@@ -30,8 +33,8 @@ public class Arrow : MonoBehaviour
     {
       if(!Not_Active)
      {
-      float angle=Mathf.Atan2(rb.velocity.y,rb.velocity.x)*Mathf.Rad2Deg;
-      transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+        float angle=Mathf.Atan2(rb.velocity.y,rb.velocity.x)*Mathf.Rad2Deg;
+        transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
      }
     
          if(Input.GetKeyDown(KeyCode.Space) && Not_Active2 )
@@ -46,27 +49,30 @@ public class Arrow : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-     if(collision.gameObject.CompareTag("target"))
-     {
+
+        Instantiate(hit_smoke, transform.position, quaternion.identity);
+        
+        if(collision.gameObject.CompareTag("target"))
+        {
         GameObject bow=GameObject.Find("bow");
+        
         if(bow!=null)
         {
-        StartCoroutine(Later_Goback());
-
+        StartCoroutine(Later_Goback()); 
         }
-    
-     }
+      }
       if(collision.gameObject.CompareTag("targethead"))
-      {
-         GameObject bow=GameObject.Find("bow");
+      { 
+        GameObject bow=GameObject.Find("bow");
+        
+        scarecrow = collision.gameObject.GetComponent<Animator>();
+        scarecrow.SetTrigger("IsHit");
+        
         if(bow!=null)
         { 
-        StartCoroutine(Later_Goback());
-        GameObject game_cont=GameObject.FindGameObjectWithTag("GameController");
-
-        game_cont.GetComponent<Game_Controller>().image_Target_control(1);
-       
-        
+            StartCoroutine(Later_Goback());
+            GameObject game_cont=GameObject.FindGameObjectWithTag("GameController");
+            game_cont.GetComponent<Game_Controller>().image_Target_control(1);
         }
       }
     }
@@ -74,7 +80,7 @@ public class Arrow : MonoBehaviour
     IEnumerator Later_Goback()
     {
         Not_Active=true;
-         Not_Active2=true;
+        Not_Active2=true;
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CircleCollider2D>());
