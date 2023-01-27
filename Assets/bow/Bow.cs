@@ -19,7 +19,7 @@ public class Bow : MonoBehaviour
     void Awake()
     {
     game_Controller=GameObject.FindGameObjectWithTag("GameController").GetComponent<Game_Controller>();
-     StartCoroutine(first_Of_first());
+    
      Arrow_throw_obj=GameObject.Find("arrow_throw_pos");
      animator=GetComponent<Animator>();
      Dots=new GameObject[NumberOfDots];
@@ -34,6 +34,7 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     IEnumerator first_Of_first()
     {
+        yield return new WaitForSeconds(3f);
      Arrow_is_flying=false;
      yield break;
     }
@@ -53,6 +54,7 @@ public class Bow : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             cameraState.SetBool("levelShow", true);
+            StartCoroutine(first_Of_first());
         }
     }
     void shoot()
@@ -64,7 +66,7 @@ public class Bow : MonoBehaviour
          {
             arrow_timer+=Time.deltaTime;
             
-            if(arrow_timer>0.1f)
+            if(arrow_timer>0.05f)
             {
              arrow_power+=0.5f;
              arrow_timer=0;

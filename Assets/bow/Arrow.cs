@@ -39,7 +39,7 @@ public class Arrow : MonoBehaviour
            Bow.Arrow_is_flying=false; 
            cameraState.SetBool("arrowFlying", false);
            //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
-
+           Press_start_image.GetComponent<image_script>().is_Inactive();
            Destroy(this.GetComponent<Arrow>());
          }
         
@@ -60,11 +60,12 @@ public class Arrow : MonoBehaviour
       {
          GameObject bow=GameObject.Find("bow");
         if(bow!=null)
-        {
+        { 
+        StartCoroutine(Later_Goback());
         GameObject game_cont=GameObject.FindGameObjectWithTag("GameController");
 
         game_cont.GetComponent<Game_Controller>().image_Target_control(1);
-        StartCoroutine(Later_Goback());
+       
         
         }
       }
@@ -76,6 +77,7 @@ public class Arrow : MonoBehaviour
          Not_Active2=true;
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
+        Destroy(this.GetComponent<CircleCollider2D>());
         Press_start_image.GetComponent<image_script>().is_Active();
        
         // bundan sonrası kamerayı tekrar bowa yolluyor

@@ -8,7 +8,7 @@ public class image_script : MonoBehaviour
     
     public void is_Active()
     {   
-        this.transform.DOLocalMoveY(-500,0.5f);
+        this.transform.DOLocalMoveY(-450,0.5f);
     }
 
     public void is_Inactive()
