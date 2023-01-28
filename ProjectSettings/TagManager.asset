@@ -13,6 +13,10 @@ TagManager:
   - Targetc
   - arrowCam
   - ground
+  - pausePanel
+  - winPanel
+  - losePanel
+  - pauseButton
   layers:
   - Default
   - TransparentFX

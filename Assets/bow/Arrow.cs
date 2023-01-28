@@ -31,20 +31,29 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(!Not_Active)
-     {
-        float angle=Mathf.Atan2(rb.velocity.y,rb.velocity.x)*Mathf.Rad2Deg;
-        transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
-     }
+        if (Bow.game_continue)
+        {
+            if(!Not_Active)
+            {
+                float angle=Mathf.Atan2(rb.velocity.y,rb.velocity.x)*Mathf.Rad2Deg;
+                transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
+            }
     
-         if(Input.GetKeyDown(KeyCode.Space) && Not_Active2 )
-         {
-           Bow.Arrow_is_flying=false; 
-           cameraState.SetBool("arrowFlying", false);
-           //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
-           Press_start_image.GetComponent<image_script>().is_Inactive();
-           Destroy(this.GetComponent<Arrow>());
-         }
+            if(Input.GetKeyDown(KeyCode.Space) && Not_Active2 )
+            {
+                Bow.Arrow_is_flying=false; 
+                cameraState.SetBool("arrowFlying", false);
+                //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
+                Press_start_image.GetComponent<image_script>().is_Inactive();
+                Destroy(this.GetComponent<Arrow>());
+            }
+        }
+        else
+        {
+            Press_start_image.GetComponent<image_script>().is_Inactive();
+        }
+        
+     
         
     }
     void OnCollisionEnter2D(Collision2D collision)

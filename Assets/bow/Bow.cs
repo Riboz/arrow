@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bow : MonoBehaviour
 {
     // Start is called before the first frame update
+    public static bool game_continue=true;
     [Header("needed")]
     [SerializeField]private int NumberOfDots;
     Game_Controller game_Controller;
@@ -19,7 +20,8 @@ public class Bow : MonoBehaviour
     void Awake()
     {
     game_Controller=GameObject.FindGameObjectWithTag("GameController").GetComponent<Game_Controller>();
-    
+    image_script b=GameObject.Find("Image").GetComponent<image_script>();
+    b.is_Active();
      Arrow_throw_obj=GameObject.Find("arrow_throw_pos");
      animator=GetComponent<Animator>();
      Dots=new GameObject[NumberOfDots];
@@ -46,16 +48,24 @@ public class Bow : MonoBehaviour
      }
     void FixedUpdate()
     {
-        BowDirection();
+        
+        if (game_continue) BowDirection();
     }
     void Update()
     {
-        if(!Arrow_is_flying && arrow_count>0)shoot();
-        if (Input.GetKeyDown("space"))
+        if (game_continue)
         {
-            cameraState.SetBool("levelShow", true);
-            StartCoroutine(first_Of_first());
+            if(!Arrow_is_flying && arrow_count>0)shoot();
+            if (Input.GetKeyDown("space"))
+            {
+                image_script a = GameObject.Find("Image").GetComponent<image_script>();
+                a.is_Inactive();
+                cameraState.SetBool("levelShow", true);
+            
+                StartCoroutine(first_Of_first());
+            }
         }
+      
     }
     void shoot()
     {

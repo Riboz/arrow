@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoaderBasic : MonoBehaviour
 {
     public Scene sceneToLoad;
-
+    
     public void sceneLoad1()
     {
         SceneManager.LoadScene(1);
@@ -27,6 +27,46 @@ public class SceneLoaderBasic : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
+    public void sceneLoad6()
+    {
+        SceneManager.LoadScene(6);
+    }
+    public void sceneLoad7()
+    {
+        SceneManager.LoadScene(7);
+    }
+    public void sceneLoad8()
+    {
+        SceneManager.LoadScene(8);
+    }
+    public void sceneLoad9()
+    {
+        SceneManager.LoadScene(9);
+    }
+    public void sceneLoad10()
+    {
+        SceneManager.LoadScene(10);
+    }
+    public void sceneLoad11()
+    {
+        SceneManager.LoadScene(11);
+    }
+    public void sceneLoad12()
+    {
+        SceneManager.LoadScene(12);
+    }
+    public void sceneLoad13()
+    {
+        SceneManager.LoadScene(13);
+    }
+    public void sceneLoad14()
+    {
+        SceneManager.LoadScene(14);
+    }
+    public void sceneLoad15()
+    {
+        SceneManager.LoadScene(15);
+    }
 
     public void sceneLoadMainMenu()
     {
@@ -34,10 +74,17 @@ public class SceneLoaderBasic : MonoBehaviour
         
         SceneManager.LoadScene(0);
     }
+    
     public void sceneLoadRestart()
     {
         Time.timeScale = 1;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+    }
+    
+    public void loadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 }
