@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffect: 0.6
+  parallaxEffect: 0
 --- !u!4 &2756959550187583118
 Transform:
   m_ObjectHideFlags: 0
