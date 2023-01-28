@@ -119,7 +119,7 @@ public class Bow : MonoBehaviour
         Arrow_is_flying=true;
         cameraState.SetBool("arrowFlying", true);
 
-        game_Controller.image_control();
+        
 
         }
 

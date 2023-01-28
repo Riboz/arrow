@@ -63,7 +63,8 @@ public class Arrow : MonoBehaviour
         if(collision.gameObject.CompareTag("ground"))
         {
         GameObject bow=GameObject.Find("bow");
-        
+        Game_Controller game_Controller=GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
+        game_Controller.image_control();
         if(bow!=null)
         {
         StartCoroutine(Later_Goback()); 
@@ -75,7 +76,8 @@ public class Arrow : MonoBehaviour
         {
         transform.parent = collision.gameObject.transform;
         GameObject bow=GameObject.Find("bow");
-        
+        Game_Controller game_Controller=GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
+        game_Controller.image_control();
         if(bow!=null)
         {
         StartCoroutine(Later_Goback()); 
