@@ -15,10 +15,13 @@ public class Bow : MonoBehaviour
     private Vector2 direction;
     [SerializeField] private GameObject Arrow,Dot,Arrow_throw_obj;
     private Animator animator;
+    public AudioSource audios;
+    public AudioClip bow_attack;
     [Header("Arrow parameter")]
     [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,SpaceBetweenDots;
     void Awake()
     {
+        audios=GetComponent<AudioSource>();
     game_Controller=GameObject.FindGameObjectWithTag("GameController").GetComponent<Game_Controller>();
     image_script b=GameObject.Find("Image").GetComponent<image_script>();
     b.is_Active();
@@ -98,6 +101,7 @@ public class Bow : MonoBehaviour
         
        if(Input.GetMouseButtonUp(0) )
         { 
+        audios.PlayOneShot(bow_attack);
         animator.Play("reflex");
 
         GameObject new_Arrow=Instantiate(Arrow,Arrow_throw_obj.transform.position,Arrow_throw_obj.transform.rotation);
@@ -106,7 +110,7 @@ public class Bow : MonoBehaviour
 
         arrow_power=0;
 
-     
+        
       
         arrow_count-=1;
        

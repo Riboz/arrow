@@ -12,9 +12,20 @@ public class LevelManager : MonoBehaviour
     public GameObject[] levelButtons;
     public bool[] isLevelDone;
     public GameObject levelButtonsCanvas;
-    
+    static int a=0;
+    public AudioSource audios;
     private void Awake()
     {
+        if(a==0)
+        
+        {
+           audios.mute=false;            a++;
+        }
+        else
+        
+        {
+         audios.mute=true;     
+        }
         DontDestroyOnLoad(gameObject);
         amountOfUnlockedLevels = 0;
         temporary = -1;

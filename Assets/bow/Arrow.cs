@@ -14,9 +14,11 @@ public class Arrow : MonoBehaviour
     public Animator cameraState;
     public Animator scarecrow;
     public GameObject hit_smoke;
-
+    public AudioSource audios;
+    public AudioClip hit;
     void Awake()
     {
+        audios=GetComponent<AudioSource>();
         arrowCam = GameObject.FindWithTag("arrowCam");
         arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
         cameraState = GameObject.Find("CameraStateController").GetComponent<Animator>();
@@ -60,6 +62,7 @@ public class Arrow : MonoBehaviour
     {
 
         Instantiate(hit_smoke, transform.position, quaternion.identity);
+        audios.PlayOneShot(hit);
         if(collision.gameObject.CompareTag("ground"))
         {
         GameObject bow=GameObject.Find("bow");
