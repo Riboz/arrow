@@ -57,10 +57,13 @@ public class Game_Controller : MonoBehaviour
    
    public void image_Target_control(int a)
    {
+    arrow_count=Scenebow.arrow_count;
+    Arrow_s[(int)arrow_count].gameObject.SetActive(false);
     Gamepoint-=a;
     
         if(Target_s[Gamepoint]!=null)Target_s[Gamepoint].gameObject.SetActive(false);
-        if (Gamepoint == 0)
+        
+        if (Gamepoint == 0 &&arrow_count>=0)
         {
             Bow.game_continue = false;
             
