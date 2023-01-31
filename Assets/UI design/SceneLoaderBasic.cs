@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneLoaderBasic : MonoBehaviour
 {
     public Scene sceneToLoad;
-    
+    public void Start()
+    {
+        Application.targetFrameRate=60;
+    }
     public void sceneLoad1()
     {
         SceneManager.LoadScene(1);

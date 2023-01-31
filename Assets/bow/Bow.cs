@@ -20,11 +20,11 @@ public class Bow : MonoBehaviour
     public AudioClip bow_attack;
     [Header("Arrow parameter")]
     [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,SpaceBetweenDots;
-   Touch touch;
+ 
   
     void Awake()
     {
-        touch=new Touch();
+       
 
         audios=GetComponent<AudioSource>();
 
@@ -83,6 +83,10 @@ public class Bow : MonoBehaviour
     void shoot()
     {
         
+        foreach(Touch touch in Input.touches)
+        {
+
+   
         if(touch.phase == TouchPhase.Began)
         {
             animator.Play("flex");
@@ -130,7 +134,7 @@ public class Bow : MonoBehaviour
         Arrow_is_flying=true;
         cameraState.SetBool("arrowFlying", true);
 
-        
+        }
         
         }
         
