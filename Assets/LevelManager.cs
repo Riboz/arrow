@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public int amountOfUnlockedLevels;
-    public int temporary;
     public GameObject[] levelButtons;
     public bool[] isLevelDone;
     public GameObject levelButtonsCanvas;
@@ -27,8 +26,7 @@ public class LevelManager : MonoBehaviour
         
         
         DontDestroyOnLoad(gameObject);
-        amountOfUnlockedLevels = 0;
-        temporary = -1;
+        amountOfUnlockedLevels = PlayerPrefs.GetInt("levelProgression");
 
         for (int i = 0; i < isLevelDone.Length; i++)
         {
@@ -50,7 +48,7 @@ public class LevelManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            for (int i = 0; i <= PlayerPrefs.GetInt("levelProgression"); i++)
+            for (int i = 0; i <= amountOfUnlockedLevels; i++)
             {
                 levelButtons[i].gameObject.GetComponent<Button>().enabled = true;
                 levelButtons[i].gameObject.GetComponent<CanvasGroup>().alpha = 1;
