@@ -25,8 +25,9 @@ public class LevelManager : MonoBehaviour
          audios.mute=true;     
         }
         
-        PlayerPrefs.SetInt("levelProgression", amountOfUnlockedLevels);
+        
         DontDestroyOnLoad(gameObject);
+        amountOfUnlockedLevels = 0;
         temporary = -1;
 
         for (int i = 0; i < isLevelDone.Length; i++)
@@ -37,6 +38,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        PlayerPrefs.SetInt("levelProgression", amountOfUnlockedLevels);
+        
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             for (int i = 0; i <= isLevelDone.Length; i++)
