@@ -10,7 +10,7 @@ public class Arrow : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject Press_start_image;
     public GameObject arrowCam;
-    bool Not_Active=false,Not_Active2;
+    bool Not_Active=false;
     public Animator cameraState;
     public Animator scarecrow;
     public GameObject hit_smoke;
@@ -26,7 +26,7 @@ public class Arrow : MonoBehaviour
     }
     void Start()
     {
-      Not_Active2=false;
+      
     rb=GetComponent<Rigidbody2D>();
     }
 
@@ -113,7 +113,7 @@ public class Arrow : MonoBehaviour
     IEnumerator Later_Goback()
     {
         Not_Active=true;
-        Not_Active2=true;
+     
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CircleCollider2D>());

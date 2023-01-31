@@ -4256,7 +4256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountOfUnlockedLevels: 0
-  temporary: 0
   levelButtons:
   - {fileID: 1242647746}
   - {fileID: 1025165344}
@@ -4301,7 +4300,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c1ae358f750f9a74d964299fde937e10, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 272194e75d2b79349bf93c08dca9ead4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
