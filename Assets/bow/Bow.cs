@@ -82,16 +82,12 @@ public class Bow : MonoBehaviour
     }
     void shoot()
     {
-         for(int i=0;i<Dots.Length;i++)
-         {
-            Dots[i].transform.position=Dotposition(i*SpaceBetweenDots);   
-         }
-         
+
         foreach(Touch touch in Input.touches)
         {
 
    
-        if(touch.phase == TouchPhase.Began)
+        if(touch.phase == TouchPhase.Moved)
         {
             animator.Play("flex");
          if(arrow_power<=arrow_power_bound)

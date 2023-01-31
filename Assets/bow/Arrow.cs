@@ -41,14 +41,7 @@ public class Arrow : MonoBehaviour
                 transform.rotation=Quaternion.AngleAxis(angle,Vector3.forward);
             }
     
-            if(Input.GetKeyDown(KeyCode.Space) && Not_Active2 )
-            {
-                Bow.Arrow_is_flying=false; 
-                cameraState.SetBool("arrowFlying", false);
-                //arrowCam.GetComponent<CinemachineVirtualCamera>().Follow = GameObject.Find("bow").transform;
-                Press_start_image.GetComponent<image_script>().is_Inactive();
-                Destroy(this.GetComponent<Arrow>());
-            }
+           
         }
         else
         {
@@ -58,8 +51,21 @@ public class Arrow : MonoBehaviour
      
         
     }
+    public IEnumerator Gobow()
+    {
+        yield return new WaitForSeconds(2f);
+                // bowa geri dönsün
+                Bow.Arrow_is_flying=false; 
+                cameraState.SetBool("arrowFlying", false);
+            
+                Press_start_image.GetComponent<image_script>().is_Inactive();
+                Destroy(this.GetComponent<Arrow>());
+                yield break;
+            
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        StartCoroutine(Gobow());
 
         Instantiate(hit_smoke, transform.position, quaternion.identity);
         audios.PlayOneShot(hit);
