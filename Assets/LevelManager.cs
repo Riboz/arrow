@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
+            for (int i = 0; i <= PlayerPrefs.GetInt("levelProgression"); i++)
             {
                 levelButtons[i].gameObject.GetComponent<Button>().enabled = true;
                 levelButtons[i].gameObject.GetComponent<CanvasGroup>().alpha = 1;
