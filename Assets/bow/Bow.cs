@@ -76,12 +76,25 @@ public class Bow : MonoBehaviour
         if (game_continue)
         {
             if(!Arrow_is_flying && arrow_count>0)shoot();
-           
+            if(Arrow_is_flying)
+            {
+                 for(int i=0;i<Dots.Length;i++)
+          {
+        
+                Dots[i].SetActive(false);
+          
+          }
+            }
         }
       
     }
     void shoot()
     {
+         for(int i=0;i<Dots.Length;i++)
+         {
+            Dots[i].SetActive(true);
+            Dots[i].transform.position=Dotposition(i*SpaceBetweenDots);   
+         }
         foreach(Touch touch in Input.touches)
         {
            
@@ -92,7 +105,7 @@ public class Bow : MonoBehaviour
          {
 
           
-           Vector2 Mouse_Posisiton=touch.position;
+           Vector2 Mouse_Posisiton=Camera.main.ScreenToWorldPoint((Vector2)touch.position);
 
            float Arrowflex=Vector2.Distance(Mouse_Posisiton,(Vector2)this.transform.position);
 
@@ -105,15 +118,11 @@ public class Bow : MonoBehaviour
             arrow_power=arrow_power_bound;
          }
 
-         for(int i=0;i<Dots.Length;i++)
-         {
-            Dots[i].SetActive(true);
-            Dots[i].transform.position=Dotposition(i*SpaceBetweenDots);   
-         }
+        
 
         }
         
-      else if(touch.phase == TouchPhase.Canceled)
+       if(touch.phase == TouchPhase.Ended)
         { 
         audios.PlayOneShot(bow_attack);
         animator.Play("reflex");
@@ -128,17 +137,9 @@ public class Bow : MonoBehaviour
        
         arrow_count-=1;
        
-        for(int i=0;i<Dots.Length;i++)
-          {
-        
-                Dots[i].SetActive(false);
-          
-          }
+       
         Arrow_is_flying=true;
         cameraState.SetBool("arrowFlying", true);
-
-        
-        
         }
         }
     }
