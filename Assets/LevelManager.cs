@@ -17,17 +17,16 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         if(a==0)
-        
         {
            audios.mute=false;            a++;
         }
         else
-        
         {
          audios.mute=true;     
         }
+        
+        PlayerPrefs.SetInt("levelProgression", amountOfUnlockedLevels);
         DontDestroyOnLoad(gameObject);
-        amountOfUnlockedLevels = 0;
         temporary = -1;
 
         for (int i = 0; i < isLevelDone.Length; i++)
@@ -48,7 +47,6 @@ public class LevelManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            for (int i = 0; i <= amountOfUnlockedLevels; i++)
             {
                 levelButtons[i].gameObject.GetComponent<Button>().enabled = true;
                 levelButtons[i].gameObject.GetComponent<CanvasGroup>().alpha = 1;
