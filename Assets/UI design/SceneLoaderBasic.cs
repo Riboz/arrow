@@ -70,7 +70,11 @@ public class SceneLoaderBasic : MonoBehaviour
     {
         SceneManager.LoadScene(15);
     }
-
+    public void sceneLoad16()
+    {
+        SceneManager.LoadScene(16);
+    }
+    
     public void sceneLoadMainMenu()
     {
         Time.timeScale = 1;
