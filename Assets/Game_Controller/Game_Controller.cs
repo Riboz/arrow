@@ -4,9 +4,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class Game_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
+
     [SerializeField] public static bool[] Winner;
     [SerializeField] private Bow Scenebow;
     [SerializeField] public GameObject[] The_Targets;
@@ -83,7 +85,4 @@ public class Game_Controller : MonoBehaviour
    
  
    }
-
-
-
 }
