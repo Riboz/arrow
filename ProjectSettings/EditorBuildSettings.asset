@@ -23,9 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter1/Level_1_5.unity
     guid: bb10b877301fef3448e07ad92acc7a5c
+<<<<<<< HEAD
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+=======
+>>>>>>> parent of 0171bdc (Merge branch 'master' of https://github.com/Riboz/arrow)
   - enabled: 1
     path: Assets/Scenes/Chapter2/Level_2_1.unity
     guid: d799737bd6b0cdd47996d09db2a4644e
