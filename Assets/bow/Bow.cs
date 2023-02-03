@@ -20,8 +20,6 @@ public class Bow : MonoBehaviour
     public AudioClip bow_attack;
     [Header("Arrow parameter")]
     [SerializeField] public float arrow_count,arrow_power,arrow_power_bound,SpaceBetweenDots;
- 
-  
     void Awake()
     {
        

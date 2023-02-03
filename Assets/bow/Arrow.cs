@@ -53,7 +53,7 @@ public class Arrow : MonoBehaviour
     }
     public IEnumerator Gobow()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.8f);
                 // bowa geri dönsün
                 Bow.Arrow_is_flying=false; 
                 cameraState.SetBool("arrowFlying", false);
@@ -73,7 +73,7 @@ public class Arrow : MonoBehaviour
         {
         GameObject bow=GameObject.Find("bow");
         Game_Controller game_Controller=GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
-        game_Controller.image_control();
+     
         if(bow!=null)
         {
         StartCoroutine(Later_Goback()); 
@@ -86,7 +86,7 @@ public class Arrow : MonoBehaviour
         transform.parent = collision.gameObject.transform;
         GameObject bow=GameObject.Find("bow");
         Game_Controller game_Controller=GameObject.Find("Game_Controller").GetComponent<Game_Controller>();
-        game_Controller.image_control();
+        
         if(bow!=null)
         {
         StartCoroutine(Later_Goback()); 
@@ -117,7 +117,7 @@ public class Arrow : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity=Vector2.zero;
         Destroy(this.GetComponent<Rigidbody2D>());
         Destroy(this.GetComponent<CircleCollider2D>());
-        Press_start_image.GetComponent<image_script>().is_Active();
+        
        
         // bundan sonrası kamerayı tekrar bowa yolluyor
         // panel açılsın 
